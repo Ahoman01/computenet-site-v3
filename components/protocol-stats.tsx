@@ -6,12 +6,12 @@ import { useTelemetry } from "@/hooks/use-telemetry"
 import { formatNumber, formatLastPoll, formatLatency } from "@/lib/telemetry"
 
 export function ProtocolStats() {
-  const { validators, onlineCount, totalTruthRecords, totalPeers, totalPropagationQueue, isLoading } = useTelemetry()
+  const { validators, onlineCount, totalTruthRecords, totalPeers, totalPropagationQueue, isLoading: loading } = useTelemetry()
 
   const stats = [
     {
       label: "Active Validators",
-      value: isLoading ? "..." : onlineCount.toString(),
+      value: loading ? "..." : onlineCount.toString(),
       subtext: `${validators.length} total nodes`,
       icon: Shield,
       color: "text-primary",
@@ -19,7 +19,7 @@ export function ProtocolStats() {
     },
     {
       label: "Truth Records",
-      value: isLoading ? "..." : formatNumber(totalTruthRecords),
+      value: loading ? "..." : formatNumber(totalTruthRecords),
       subtext: "Total verified",
       icon: Box,
       color: "text-chart-2",
@@ -27,7 +27,7 @@ export function ProtocolStats() {
     },
     {
       label: "Network Peers",
-      value: isLoading ? "..." : formatNumber(totalPeers),
+      value: loading ? "..." : formatNumber(totalPeers),
       subtext: "Connected peers",
       icon: Wifi,
       color: "text-chart-4",
@@ -35,7 +35,7 @@ export function ProtocolStats() {
     },
     {
       label: "Propagation Queue",
-      value: isLoading ? "..." : formatNumber(totalPropagationQueue),
+      value: loading ? "..." : formatNumber(totalPropagationQueue),
       subtext: "Pending propagation",
       icon: Zap,
       color: "text-chart-1",
@@ -84,7 +84,7 @@ export function ProtocolStats() {
 }
 
 export function ValidatorTelemetry() {
-  const { validators, isLoading, lastUpdate, refresh } = useTelemetry()
+  const { validators, isLoading: loading, lastUpdate, refresh } = useTelemetry()
 
   return (
     <div className="glass-panel rounded-xl overflow-hidden">
@@ -104,7 +104,7 @@ export function ValidatorTelemetry() {
             className="p-1.5 text-muted-foreground hover:text-foreground transition-colors"
             title="Refresh"
           >
-            <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
+            <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
           </button>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -180,7 +180,7 @@ export function ValidatorTelemetry() {
 }
 
 export function ComputeReceiptPreview() {
-  const { validators, totalTruthRecords, totalPeers, totalPropagationQueue, isLoading } = useTelemetry()
+  const { validators, totalTruthRecords, totalPeers, totalPropagationQueue, isLoading: loading } = useTelemetry()
   
   // Get aggregated data from all online validators
   const onlineValidators = validators.filter(v => v.online)
@@ -220,7 +220,7 @@ export function ComputeReceiptPreview() {
           </span>
         ) : (
           <span className="px-2 py-1 rounded-full bg-muted/50 text-muted-foreground text-xs font-medium">
-            {isLoading ? "Loading..." : "Offline"}
+            {loading ? "Loading..." : "Offline"}
           </span>
         )}
       </div>
@@ -234,7 +234,7 @@ export function ComputeReceiptPreview() {
           </div>
         ))}
       </div>
-      {!hasData && !isLoading && (
+      {!hasData && !loading && (
         <div className="p-3 border-t border-border/50 bg-secondary/20">
           <p className="text-[10px] text-muted-foreground/50 text-center">
             Unable to connect to validator nodes. Check network status.

@@ -47,7 +47,7 @@ export default function ValidatorsPage() {
   refresh
 } = useTelemetry()
 
-const isLoading = false
+const loading = false
 
   return (
       <main className="pt-16">
@@ -142,9 +142,9 @@ const isLoading = false
                   size="sm" 
                   className="gap-2"
                   onClick={refresh}
-                  disabled={isLoading}
+                  disabled={loading}
                 >
-                  <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
+                  <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
                   Refresh
                 </Button>
                 <Button asChild variant="outline" className="gap-2">
