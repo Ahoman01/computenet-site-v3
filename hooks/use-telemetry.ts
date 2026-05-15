@@ -16,7 +16,7 @@ const initialState: NetworkTelemetry = {
     url: e.url,
     region: e.region,
     online: false,
-    status: null,
+    status: undefined,
     latencyMs: null,
     lastSuccessfulPoll: null,
     lastFetch: 0,
@@ -27,6 +27,7 @@ const initialState: NetworkTelemetry = {
   totalPropagationQueue: 0,
   lastUpdate: 0,
   isLoading: true,
+  error: null,
 }
 
 export function useTelemetry(autoRefresh = true) {
@@ -56,9 +57,7 @@ export function useTelemetry(autoRefresh = true) {
     }
   }, [refresh, autoRefresh])
 
-  return {
-    isLoading: false,
-    ...telemetry,
+  return {    ...telemetry,
     error,
     refresh,
   }
