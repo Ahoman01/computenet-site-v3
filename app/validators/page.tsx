@@ -40,7 +40,14 @@ const validatorRoles = [
 ]
 
 export default function ValidatorsPage() {
-  const { validators, onlineCount, isLoading, lastUpdate, refresh } = useTelemetry()
+  const {
+  validators,
+  onlineCount,
+  lastUpdate,
+  refresh
+} = useTelemetry()
+
+const isLoading = false
 
   return (
       <main className="pt-16">

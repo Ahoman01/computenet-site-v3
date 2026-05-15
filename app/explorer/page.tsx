@@ -12,16 +12,17 @@ import { useTelemetry } from "@/hooks/use-telemetry"
 import { formatNumber, formatLatency, formatLastPoll, VALIDATOR_ENDPOINTS } from "@/lib/telemetry"
 
 export default function ExplorerPage() {
-  const { 
-    validators, 
-    onlineCount, 
-    totalTruthRecords, 
-    totalPeers,
-    totalPropagationQueue,
-    isLoading, 
-    lastUpdate,
-    refresh 
-  } = useTelemetry()
+  const {
+  validators,
+  onlineCount,
+  totalTruthRecords,
+  totalPeers,
+  totalPropagationQueue,
+  lastUpdate,
+  refresh
+} = useTelemetry()
+
+const isLoading = false
 
   return (
       <main className="pt-16 min-h-screen">
