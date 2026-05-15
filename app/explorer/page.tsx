@@ -22,7 +22,7 @@ export default function ExplorerPage() {
   refresh
 } = useTelemetry()
 
-const isLoading = false
+const loading = false
 
   return (
       <main className="pt-16 min-h-screen">
@@ -53,9 +53,9 @@ const isLoading = false
                   size="sm" 
                   className="gap-2"
                   onClick={refresh}
-                  disabled={isLoading}
+                  disabled={loading}
                 >
-                  <RefreshCw className={`w-4 h-4 ${isLoading ? "animate-spin" : ""}`} />
+                  <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
                   Refresh
                 </Button>
               </div>
@@ -69,7 +69,7 @@ const isLoading = false
             {[
               { 
                 label: "Active Validators", 
-                value: isLoading ? "..." : onlineCount.toString(),
+                value: loading ? "..." : onlineCount.toString(),
                 icon: Shield, 
                 color: "text-primary", 
                 subtext: `${validators.length} total nodes`,
@@ -77,7 +77,7 @@ const isLoading = false
               },
               { 
                 label: "Truth Records", 
-                value: isLoading ? "..." : formatNumber(totalTruthRecords),
+                value: loading ? "..." : formatNumber(totalTruthRecords),
                 icon: Box, 
                 color: "text-chart-2", 
                 subtext: "Total verified",
@@ -85,7 +85,7 @@ const isLoading = false
               },
               { 
                 label: "Network Peers", 
-                value: isLoading ? "..." : formatNumber(totalPeers),
+                value: loading ? "..." : formatNumber(totalPeers),
                 icon: Wifi, 
                 color: "text-chart-4", 
                 subtext: "Connected",
@@ -93,7 +93,7 @@ const isLoading = false
               },
               { 
                 label: "Propagation Queue", 
-                value: isLoading ? "..." : formatNumber(totalPropagationQueue),
+                value: loading ? "..." : formatNumber(totalPropagationQueue),
                 icon: Zap, 
                 color: "text-chart-1", 
                 subtext: "Pending propagation",
