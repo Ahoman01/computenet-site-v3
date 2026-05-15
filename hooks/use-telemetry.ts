@@ -57,6 +57,7 @@ export function useTelemetry(autoRefresh = true) {
   }, [refresh, autoRefresh])
 
   return {
+    isLoading: false,
     ...telemetry,
     error,
     refresh,
