@@ -1,0 +1,364 @@
+[
+  {
+    "route": "/",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/whitepaper",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/architecture",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/explorer",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/validators",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/research",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/genesis",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/about",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/computenet_whitepaper.pdf",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/validators",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/core-concepts",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/development",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/reference/cli",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/concepts/what-is-computenet",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/concepts/compute-receipts",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/concepts/verification-protocol",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/concepts/network-topology",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/concepts/consensus",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/validators/setup",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/validators/requirements",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/validators/monitoring",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/validators/troubleshooting",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/dev/building-on-computenet",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/dev/submitting-jobs",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/dev/verifying-results",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/dev/testing-guide",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/infrastructure",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/infra/network-architecture",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/infra/node-configuration",
+    "ok": false,
+    "issues": [
+      "HTTP 404",
+      "404 content detected"
+    ]
+  },
+  {
+    "route": "/docs/infra/security",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/infra/performance",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/security",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/security/threats",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/security/crypto",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/security/audits",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/security/incidents",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/reference",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/reference/config",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/reference/errors",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/reference/glossary",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/reference/changelog",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/validators/staking",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/concepts/overview",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/concepts/receipts",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/concepts/verification",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/concepts/topology",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/concepts",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/dev/building",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/infra/architecture",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/infra/config",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/infra/recovery",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/infra",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/security/bounty",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/sdk/javascript",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/dev/contracts",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/dev/jobs",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/dev/verification",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/dev/testing",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/dev",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/sdk/python",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/sdk/go",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/sdk/rust",
+    "ok": true,
+    "issues": []
+  },
+  {
+    "route": "/docs/sdk",
+    "ok": true,
+    "issues": []
+  }
+]
