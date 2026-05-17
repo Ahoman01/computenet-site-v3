@@ -177,6 +177,9 @@ export default function ExplorerPage() {
                   <span className="text-xs text-primary font-medium">Live</span>
                 </div>
               </div>
+              <p className="text-sm text-muted-foreground mt-1">
+                Visualizing observable and attestable useful compute across the network.
+              </p>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-xs text-muted-foreground">

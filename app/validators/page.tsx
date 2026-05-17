@@ -40,14 +40,7 @@ const validatorRoles = [
 ]
 
 export default function ValidatorsPage() {
-  const {
-  validators,
-  onlineCount,
-  lastUpdate,
-  refresh
-} = useTelemetry()
-
-const loading = false
+  const { validators, onlineCount, isLoading, lastUpdate, refresh } = useTelemetry()
 
   return (
       <main className="pt-16">
@@ -71,8 +64,8 @@ const loading = false
                 </div>
               </div>
               <p className="text-muted-foreground max-w-2xl leading-relaxed">
-                Validators serve as the trust infrastructure of ComputeNet. They verify receipts, 
-                participate in consensus, and maintain network integrity.
+                Validators serve as the trust infrastructure of ComputeNet — verifying receipts, 
+                participating in consensus, and making useful compute observable and attestable.
               </p>
             </motion.div>
           </div>
@@ -142,9 +135,9 @@ const loading = false
                   size="sm" 
                   className="gap-2"
                   onClick={refresh}
-                  disabled={loading}
+                  disabled={isLoading}
                 >
-                  <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+                  <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
                   Refresh
                 </Button>
                 <Button asChild variant="outline" className="gap-2">
@@ -422,7 +415,7 @@ const loading = false
           </div>
         </section>
 
-        {/* Validator Setup */}
+        {/* Validator Setup - PUBLIC TESTNET */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -431,50 +424,150 @@ const loading = false
               viewport={{ once: true }}
               className="glass-panel rounded-2xl p-8 md:p-12 border-primary/20"
             >
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="grid lg:grid-cols-2 gap-8 items-start">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-chart-4/10 text-chart-4 text-sm mb-4">
-                    <Server className="w-4 h-4" />
-                    <span>Coming Soon</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm mb-4">
+                    <Globe className="w-4 h-4" />
+                    <span>Public Testnet</span>
                   </div>
                   <h2 className="text-2xl font-bold mb-4">Run a Validator</h2>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Validator participation is currently limited to the research testnet. 
-                    Future phases will introduce open validator onboarding with documented 
-                    requirements and setup procedures.
+                    Join the ComputeNet Open Public Testnet and participate in decentralized 
+                    useful compute verification.
                   </p>
-                  <div className="space-y-3 mb-6">
-                    {[
-                      "Hardware requirements documentation",
-                      "Validator software package",
-                      "Network configuration guides",
-                      "Monitoring and alerting setup",
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <Clock className="w-4 h-4 text-chart-4" />
-                        <span>{item}</span>
+
+                  {/* Status Notes */}
+                  <div className="glass-panel rounded-xl p-4 mb-6 bg-secondary/30">
+                    <div className="text-xs font-medium text-muted-foreground mb-3">Network Status</div>
+                    <div className="grid grid-cols-2 gap-2 text-sm">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
+                        <span>Open Public Testnet v0.11</span>
                       </div>
-                    ))}
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-chart-4" />
+                        <span>v0.12 Onboarding Active</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <div className="w-2 h-2 rounded-full bg-muted" />
+                        <span>TEST-COMPUTE Only</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <div className="w-2 h-2 rounded-full bg-muted" />
+                        <span>Non-Economic</span>
+                      </div>
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-border/50 text-xs text-muted-foreground">
+                      Research preview — Mainnet not launched
+                    </div>
                   </div>
-                  <Button asChild variant="outline" className="gap-2">
-                    <Link href="/genesis">
-                      Genesis Roadmap
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </Button>
+
+                  {/* Bootstrap Peers */}
+                  <div className="mb-6">
+                    <div className="text-xs font-medium text-muted-foreground mb-2">Bootstrap Peers</div>
+                    <div className="space-y-1.5 font-mono text-xs">
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <Radio className="w-3 h-3 text-primary" />
+                        <span>178.62.15.134:8787</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <Radio className="w-3 h-3 text-primary" />
+                        <span>138.68.134.235:8787</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-muted-foreground">
+                        <Radio className="w-3 h-3 text-primary" />
+                        <span>46.101.39.92:8787</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Links */}
+                  <div className="flex flex-wrap gap-3">
+                    <Button asChild size="sm" className="gap-2">
+                      <Link href="/docs/validators/setup">
+                        <Shield className="w-4 h-4" />
+                        Validator Docs
+                      </Link>
+                    </Button>
+                    <Button asChild size="sm" variant="outline" className="gap-2">
+                      <Link href="/docs/validators/requirements">
+                        <Server className="w-4 h-4" />
+                        Hardware Requirements
+                      </Link>
+                    </Button>
+                    <Button asChild size="sm" variant="outline" className="gap-2">
+                      <a href="https://github.com/Ahoman01/computenet-validator" target="_blank" rel="noopener noreferrer">
+                        <Terminal className="w-4 h-4" />
+                        GitHub Repo
+                      </a>
+                    </Button>
+                    <Button asChild size="sm" variant="outline" className="gap-2">
+                      <Link href="/explorer">
+                        <Eye className="w-4 h-4" />
+                        Explorer
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
-                <div className="glass-panel rounded-xl p-6 bg-secondary/30">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Terminal className="w-5 h-5 text-muted-foreground" />
-                    <span className="font-mono text-sm text-muted-foreground">validator-setup.sh</span>
+
+                {/* Installer Panel */}
+                <div className="space-y-4">
+                  {/* One-Line Install */}
+                  <div className="glass-panel rounded-xl p-6 bg-secondary/30">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <Terminal className="w-5 h-5 text-primary" />
+                        <span className="font-mono text-sm">One-Line Install</span>
+                      </div>
+                      <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider">
+                        Public Testnet
+                      </span>
+                    </div>
+                    <div className="relative">
+                      <pre className="font-mono text-xs bg-background/50 rounded-lg p-4 overflow-x-auto text-primary">
+                        curl -fsSL https://raw.githubusercontent.com/Ahoman01/computenet-validator/main/installer/install-validator.sh | bash
+                      </pre>
+                      <button
+                        className="absolute top-2 right-2 p-2 rounded-lg bg-background/80 hover:bg-background text-muted-foreground hover:text-foreground transition-colors"
+                        onClick={() => navigator.clipboard.writeText('curl -fsSL https://raw.githubusercontent.com/Ahoman01/computenet-validator/main/installer/install-validator.sh | bash')}
+                        title="Copy command"
+                      >
+                        <Copy className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
-                  <div className="font-mono text-sm space-y-2 text-muted-foreground/50">
-                    <p># Validator setup coming soon</p>
-                    <p># Check /genesis for roadmap</p>
-                    <p>&nbsp;</p>
-                    <p className="text-muted-foreground"># Current testnet status:</p>
-                    <p className="text-primary">echo &quot;validators_online: {onlineCount}/{validators.length}&quot;</p>
-                    <p className="text-primary">echo &quot;network_status: {onlineCount > 0 ? 'operational' : 'offline'}&quot;</p>
+
+                  {/* Quick Commands */}
+                  <div className="glass-panel rounded-xl p-6 bg-secondary/30">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Zap className="w-5 h-5 text-muted-foreground" />
+                      <span className="font-mono text-sm text-muted-foreground">Quick Commands</span>
+                    </div>
+                    <div className="font-mono text-sm space-y-2">
+                      <div className="flex items-center justify-between p-2 rounded bg-background/30">
+                        <span className="text-muted-foreground">computenet status</span>
+                        <span className="text-xs text-muted-foreground/50">Check node status</span>
+                      </div>
+                      <div className="flex items-center justify-between p-2 rounded bg-background/30">
+                        <span className="text-muted-foreground">computenet peers</span>
+                        <span className="text-xs text-muted-foreground/50">List connected peers</span>
+                      </div>
+                      <div className="flex items-center justify-between p-2 rounded bg-background/30">
+                        <span className="text-muted-foreground">computenet validator-id</span>
+                        <span className="text-xs text-muted-foreground/50">Show validator ID</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Warning */}
+                  <div className="p-4 rounded-lg border border-yellow-500/30 bg-yellow-500/5">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle className="w-4 h-4 text-yellow-500 mt-0.5 shrink-0" />
+                      <p className="text-xs text-muted-foreground">
+                        This installer is for the public research testnet only. It does not mine real COMPUTE, 
+                        does not create economic rewards, and does not connect to mainnet.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

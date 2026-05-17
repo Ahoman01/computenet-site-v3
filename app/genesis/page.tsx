@@ -12,74 +12,86 @@ import {
   HardDrive,
   Network,
   Server,
+  Terminal,
+  Eye,
+  FileText,
+  GitBranch,
+  Lock,
+  Scale,
+  Rocket,
+  ExternalLink,
 } from "lucide-react";
 import Link from "next/link";
 
 const roadmapPhases = [
   {
-    phase: "Research Preview",
+    phase: "Phase 1",
     title: "Protocol Experimentation",
-    status: "active",
+    status: "completed",
     description: "Core protocol research, proof-of-concept implementations, and internal testing.",
     items: [
       { text: "Protocol specification drafts", done: true },
-      { text: "Whitepaper development", done: true },
+      { text: "Whitepaper published", done: true },
       { text: "Initial validator architecture", done: true },
       { text: "Compute receipt proof-of-concept", done: true },
     ],
   },
   {
-    phase: "Public Testnet",
-    title: "Open Network Testing",
-    status: "upcoming",
-    description: "Public testnet deployment for external validator participation and protocol validation.",
+    phase: "Phase 2",
+    title: "Open Public Testnet",
+    status: "active",
+    description: "Public testnet with live validators, public telemetry, and documentation.",
     items: [
-      { text: "Testnet validator onboarding", done: false },
-      { text: "Public compute receipt generation", done: false },
-      { text: "Consensus testing at scale", done: false },
-      { text: "SDK and tooling preview", done: false },
+      { text: "Three bootstrap validators online", done: true },
+      { text: "Live telemetry explorer", done: true },
+      { text: "Public validator docs", done: true },
+      { text: "One-line validator installer", done: true },
+      { text: "Public GitHub repos", done: true },
     ],
   },
   {
-    phase: "Validator Documentation",
-    title: "Operator Guides",
-    status: "upcoming",
-    description: "Comprehensive documentation for running and maintaining validator infrastructure.",
+    phase: "Phase 3",
+    title: "External Validator Onboarding",
+    status: "next",
+    description: "Independent validators and witness nodes invited to join the network.",
     items: [
-      { text: "Hardware setup guides", done: false },
-      { text: "Software configuration docs", done: false },
-      { text: "Monitoring and alerting", done: false },
-      { text: "Security best practices", done: false },
+      { text: "Independent validators invited", done: false },
+      { text: "Witness nodes invited", done: false },
+      { text: "Installer testing", done: false },
+      { text: "Public telemetry validation", done: false },
+      { text: "Onboarding feedback loop", done: false },
     ],
   },
   {
-    phase: "Open-Source Release Candidate",
-    title: "Code Publication",
-    status: "upcoming",
-    description: "Full open-source release of validator software and protocol implementations.",
+    phase: "Phase 4",
+    title: "Protocol Hardening",
+    status: "planned",
+    description: "Comprehensive testing of verification mechanisms and protocol resilience.",
     items: [
-      { text: "Core protocol open-source", done: false },
-      { text: "Validator client release", done: false },
-      { text: "SDK stable release", done: false },
-      { text: "Developer documentation", done: false },
+      { text: "Deterministic workload demos", done: false },
+      { text: "Replay verification demonstrations", done: false },
+      { text: "Explorer-backed receipt verification", done: false },
+      { text: "Fraud/challenge simulations", done: false },
+      { text: "Docker validator launch", done: false },
     ],
   },
   {
-    phase: "Genesis Candidate",
-    title: "Pre-Mainnet Preparation",
-    status: "upcoming",
-    description: "Final preparation phase before mainnet launch, including security audits and genesis validator coordination.",
+    phase: "Phase 5",
+    title: "Genesis Candidate Review",
+    status: "planned",
+    description: "Final preparation phase including security audits and genesis constants.",
     items: [
-      { text: "Security audit completion", done: false },
-      { text: "Genesis validator coordination", done: false },
-      { text: "Final protocol parameters", done: false },
-      { text: "Network stress testing", done: false },
+      { text: "Security review", done: false },
+      { text: "Economic review", done: false },
+      { text: "Final genesis constants", done: false },
+      { text: "Reproducible source release", done: false },
+      { text: "Fair-launch announcement", done: false },
     ],
   },
   {
-    phase: "Mainnet Candidate",
-    title: "Network Launch Readiness",
-    status: "upcoming",
+    phase: "Phase 6",
+    title: "Mainnet Candidate",
+    status: "future",
     description: "Final readiness assessment and mainnet genesis block preparation.",
     items: [
       { text: "Genesis block preparation", done: false },
@@ -88,6 +100,27 @@ const roadmapPhases = [
       { text: "Decentralized governance activation", done: false },
     ],
   },
+];
+
+const beforeMainnetChecklist = [
+  "External validator participation",
+  "Public stress testing",
+  "Replay verification demos",
+  "Telemetry API docs",
+  "Docker validator deployment",
+  "Fraud/challenge simulations",
+  "Security review",
+  "Economic review",
+  "Final reproducible release",
+];
+
+const fairLaunchCommitments = [
+  { title: "No Premine", description: "No tokens created before genesis" },
+  { title: "No ICO", description: "No token sale or investment offering" },
+  { title: "No Founder Allocation", description: "No special founder token allocation" },
+  { title: "Open Source Before Genesis", description: "All code public before mainnet" },
+  { title: "Public Participation", description: "Anyone can participate from genesis" },
+  { title: "Equal Terms", description: "Founders participate like any ordinary validator" },
 ];
 
 const genesisRequirements = [
@@ -100,7 +133,7 @@ const genesisRequirements = [
       "Fast storage (SSD recommended)",
       "Reliable network connectivity",
     ],
-    note: "Final specifications will be published during Public Testnet phase.",
+    note: "Current testnet runs on lightweight hardware. Final specs TBD.",
   },
   {
     title: "Technical Requirements",
@@ -111,7 +144,7 @@ const genesisRequirements = [
       "24/7 operation capability",
       "Monitoring infrastructure",
     ],
-    note: "Detailed setup guides will be provided in documentation.",
+    note: "See /docs/validators/requirements for current testnet specs.",
   },
   {
     title: "Participation Requirements",
@@ -122,7 +155,7 @@ const genesisRequirements = [
       "Commitment to network security",
       "Community engagement",
     ],
-    note: "Genesis validator selection criteria will be announced.",
+    note: "Join the public testnet now to prepare for genesis.",
   },
 ];
 
@@ -148,23 +181,24 @@ export default function GenesisPage() {
               <span className="text-emerald-400">Roadmap</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              The path from research preview to mainnet genesis. ComputeNet is 
-              currently in the Research Preview phase, with subsequent phases 
-              to be announced as development progresses.
+              ComputeNet is the first open protocol attempting to make verified useful compute 
+              observable, attestable, and eventually mineable. This roadmap charts the path 
+              from open public testnet to fair-launch mainnet.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/validators"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg transition-colors"
               >
-                Learn About Validators
+                Run a Validator
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/docs"
+                href="/explorer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-card border border-border hover:border-emerald-500/50 text-foreground font-medium rounded-lg transition-colors"
               >
-                View Documentation
+                <Eye className="w-4 h-4" />
+                View Live Explorer
               </Link>
             </div>
           </motion.div>
@@ -178,17 +212,43 @@ export default function GenesisPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="p-6 rounded-xl bg-emerald-500/5 border border-emerald-500/20 text-center"
+            className="p-6 rounded-xl bg-emerald-500/5 border border-emerald-500/20"
           >
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-sm font-medium text-emerald-400">Current Phase</span>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-sm font-medium text-emerald-400">Current Phase</span>
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  Open Public Testnet v0.11 → v0.12 External Validator Onboarding
+                </h3>
+                <p className="text-muted-foreground text-sm max-w-2xl">
+                  ComputeNet is currently in Open Public Testnet. The network has live public validators, 
+                  public telemetry, validator docs, a one-line installer, public GitHub repos, and a public 
+                  whitepaper. Mainnet has not launched.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/docs/validators/setup"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-sm font-medium rounded-lg transition-colors"
+                >
+                  <Terminal className="w-4 h-4" />
+                  Validator Setup
+                </Link>
+                <a
+                  href="https://github.com/Ahoman01/computenet-validator"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border hover:border-emerald-500/50 text-foreground text-sm font-medium rounded-lg transition-colors"
+                >
+                  <GitBranch className="w-4 h-4" />
+                  GitHub
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
             </div>
-            <h3 className="text-xl font-semibold text-foreground mb-2">Research Preview</h3>
-            <p className="text-muted-foreground text-sm max-w-xl mx-auto">
-              ComputeNet is currently in research preview mode. The network is experimental, 
-              non-economic, and focused on protocol development and validation.
-            </p>
           </motion.div>
         </div>
       </section>
@@ -227,8 +287,12 @@ export default function GenesisPage() {
                 >
                   {/* Timeline dot */}
                   <div className="absolute left-4 md:left-8 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-background z-10">
-                    {milestone.status === "active" ? (
+                    {milestone.status === "completed" ? (
+                      <div className="w-full h-full rounded-full bg-emerald-500" />
+                    ) : milestone.status === "active" ? (
                       <div className="w-full h-full rounded-full bg-emerald-500 animate-pulse" />
+                    ) : milestone.status === "next" ? (
+                      <div className="w-full h-full rounded-full bg-chart-4" />
                     ) : (
                       <div className="w-full h-full rounded-full bg-muted" />
                     )}
@@ -239,16 +303,31 @@ export default function GenesisPage() {
                     className={`p-6 rounded-xl bg-card/50 border transition-all duration-300 ${
                       milestone.status === "active"
                         ? "border-emerald-500/50"
+                        : milestone.status === "next"
+                        ? "border-chart-4/50"
+                        : milestone.status === "completed"
+                        ? "border-emerald-500/30"
                         : "border-border/50"
                     }`}
                   >
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="flex items-center gap-3 mb-3 flex-wrap">
                       <span className="px-2 py-1 text-xs font-medium bg-emerald-500/10 text-emerald-400 rounded">
                         {milestone.phase}
                       </span>
+                      {milestone.status === "completed" && (
+                        <span className="px-2 py-1 text-xs font-medium bg-emerald-500/20 text-emerald-400 rounded flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3" />
+                          Completed
+                        </span>
+                      )}
                       {milestone.status === "active" && (
                         <span className="px-2 py-1 text-xs font-medium bg-emerald-500/20 text-emerald-400 rounded">
                           Current
+                        </span>
+                      )}
+                      {milestone.status === "next" && (
+                        <span className="px-2 py-1 text-xs font-medium bg-chart-4/20 text-chart-4 rounded">
+                          Active Next Step
                         </span>
                       )}
                     </div>
@@ -285,6 +364,83 @@ export default function GenesisPage() {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Before Mainnet Checklist */}
+      <section className="py-20 border-t border-border/50">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="text-2xl font-semibold text-foreground mb-4">
+              Before Mainnet Checklist
+            </h2>
+            <p className="text-muted-foreground max-w-2xl">
+              The following milestones must be completed before mainnet launch.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            {beforeMainnetChecklist.map((item, index) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="flex items-center gap-3 p-4 rounded-lg bg-card/50 border border-border/50"
+              >
+                <Circle className="w-4 h-4 text-muted-foreground shrink-0" />
+                <span className="text-sm text-foreground">{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Fair Launch Commitments */}
+      <section className="py-20 border-t border-border/50">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="text-2xl font-semibold text-foreground mb-4">
+              Fair Launch Commitments
+            </h2>
+            <p className="text-muted-foreground max-w-2xl">
+              ComputeNet is committed to a fair, transparent launch with no special allocations.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {fairLaunchCommitments.map((commitment, index) => (
+              <motion.div
+                key={commitment.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="p-6 rounded-xl bg-card/50 border border-border/50"
+              >
+                <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4">
+                  <Shield className="w-5 h-5 text-emerald-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  {commitment.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {commitment.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -343,7 +499,7 @@ export default function GenesisPage() {
         </div>
       </section>
 
-      {/* Info Section */}
+      {/* CTA Section */}
       <section className="py-20 border-t border-border/50">
         <div className="container mx-auto px-6">
           <motion.div
@@ -353,22 +509,21 @@ export default function GenesisPage() {
             className="max-w-2xl mx-auto"
           >
             <div className="p-8 rounded-2xl bg-card/50 border border-border/50 text-center">
-              <Users className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
+              <Rocket className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
               <h2 className="text-2xl font-semibold text-foreground mb-4">
-                Stay Informed
+                Join the Public Testnet
               </h2>
               <p className="text-muted-foreground mb-6">
-                Genesis validator applications are not yet open. Follow the project 
-                to receive updates on testnet participation opportunities and 
-                genesis validator selection criteria.
+                The public testnet is live. Run a validator node today and help prepare 
+                ComputeNet for a fair, decentralized mainnet launch.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/docs"
+                  href="/docs/validators/setup"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg transition-colors"
                 >
-                  Read Documentation
-                  <ArrowRight className="w-4 h-4" />
+                  <Terminal className="w-4 h-4" />
+                  Validator Setup Guide
                 </Link>
                 <Link
                   href="/validators"
