@@ -43,7 +43,7 @@ export function Hero() {
                 <span className="text-foreground">for Verified Useful Compute</span>
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
-                ComputeNet explores a decentralized future where useful computation becomes a verifiable protocol primitive.
+                The first open protocol attempting to make verified useful compute observable, attestable, and eventually mineable.
               </p>
             </div>
 
@@ -72,7 +72,7 @@ export function Hero() {
             {/* Secondary Links */}
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
               <Link
-                href="https://github.com/Ahoman01/-computenet"
+                href="https://github.com/computenet"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-foreground transition-colors"

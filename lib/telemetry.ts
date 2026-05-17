@@ -44,6 +44,12 @@ export const VALIDATOR_ENDPOINTS = [
     name: "Validator Gamma",
     url: "https://gamma.computenet.ai",
     region: "New York"
+  },
+  {
+    id: "macbook",
+    name: "Validator MacBook",
+    url: "https://likeness-vowel-scrunch.ngrok-free.dev",
+    region: "UK / External"
   }
 ]
 
