@@ -93,7 +93,7 @@ export default function WhitepaperPage() {
                     className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
                     asChild
                   >
-                    <a href="/ComputeNet_Whitepaper_v2.pdf" download="ComputeNet_Whitepaper_v2.pdf">
+                    <a href="/whitepaper/ComputeNet_Whitepaper_V5.pdf" download="ComputeNet_Whitepaper_V5.pdf">
                       <Download className="w-4 h-4" />
                       Download PDF
                     </a>
