@@ -181,6 +181,11 @@ export default function RequirementsPage() {
             high-end hardware.
           </p>
         </div>
+
+        {/* Last Updated */}
+        <div className="pt-4 border-t border-border/30">
+          <p className="text-xs text-muted-foreground/60">Last updated: May 2026</p>
+        </div>
       </section>
     </DocsLayout>
   );

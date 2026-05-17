@@ -61,7 +61,12 @@ export default function ValidatorSetupPage() {
 
         {/* One-line Install */}
         <div className="glass-panel rounded-xl p-6">
-          <h2 className="text-xl font-semibold text-foreground mb-2">One-Line Install</h2>
+          <div className="flex items-center gap-3 mb-2">
+            <h2 className="text-xl font-semibold text-foreground">One-Line Install</h2>
+            <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider">
+              Public Testnet
+            </span>
+          </div>
           <p className="text-muted-foreground text-sm mb-4">
             Install and run a ComputeNet validator with a single command:
           </p>
@@ -256,6 +261,11 @@ export default function ValidatorSetupPage() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Last Updated */}
+        <div className="pt-4 border-t border-border/30">
+          <p className="text-xs text-muted-foreground/60">Last updated: May 2026</p>
         </div>
       </section>
     </DocsLayout>
