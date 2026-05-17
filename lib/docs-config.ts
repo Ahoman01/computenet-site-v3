@@ -52,7 +52,7 @@ export const docsConfig: DocSection[] = [
         title: "Network Topology",
         href: "/docs/concepts/topology",
         description: "The structure and organization of the ComputeNet network",
-        status: "draft",
+        status: "stable",
       },
       {
         title: "Consensus",
@@ -72,13 +72,13 @@ export const docsConfig: DocSection[] = [
         title: "Validator Setup",
         href: "/docs/validators/setup",
         description: "Step-by-step guide to setting up a validator node",
-        status: "draft",
+        status: "stable",
       },
       {
         title: "Hardware Requirements",
         href: "/docs/validators/requirements",
         description: "Minimum and recommended hardware specifications",
-        status: "draft",
+        status: "stable",
       },
       {
         title: "Staking",
@@ -110,7 +110,7 @@ export const docsConfig: DocSection[] = [
         title: "Building on ComputeNet",
         href: "/docs/dev/building",
         description: "Getting started with ComputeNet development",
-        status: "draft",
+        status: "stable",
       },
       {
         title: "Smart Contracts",
@@ -148,7 +148,7 @@ export const docsConfig: DocSection[] = [
         title: "Network Architecture",
         href: "/docs/infra/architecture",
         description: "Overview of the ComputeNet network architecture",
-        status: "draft",
+        status: "stable",
       },
       {
         title: "Node Configuration",
@@ -160,7 +160,7 @@ export const docsConfig: DocSection[] = [
         title: "Security",
         href: "/docs/infra/security",
         description: "Security best practices for node operators",
-        status: "draft",
+        status: "stable",
       },
       {
         title: "Performance",
@@ -186,7 +186,7 @@ export const docsConfig: DocSection[] = [
         title: "Threat Model",
         href: "/docs/security/threats",
         description: "Understanding the security assumptions and threats",
-        status: "draft",
+        status: "stable",
       },
       {
         title: "Cryptography",
@@ -224,13 +224,13 @@ export const docsConfig: DocSection[] = [
         title: "CLI Reference",
         href: "/docs/reference/cli",
         description: "Command-line interface documentation",
-        status: "draft",
+        status: "stable",
       },
       {
         title: "Configuration",
         href: "/docs/reference/config",
         description: "All configuration options and parameters",
-        status: "draft",
+        status: "stable",
       },
       {
         title: "Error Codes",
@@ -262,7 +262,7 @@ export const docsConfig: DocSection[] = [
         title: "JavaScript SDK",
         href: "/docs/sdk/javascript",
         description: "ComputeNet SDK for Node.js and browsers",
-        status: "draft",
+        status: "stable",
       },
       {
         title: "Python SDK",
